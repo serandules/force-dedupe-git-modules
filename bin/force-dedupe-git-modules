@@ -29,12 +29,12 @@ function findModulesFromGit(modulePath, callback) {
 	}
 	var match = packageJson._from.match(/^([^@]+)@git(\+ssh|\+https?)?:/);
 	if (match == null) {
-		return;
+		//return;
 	}
-	var moduleName = match[1];
+	var moduleName = packageJson.name;
 	var moduleVersion = packageJson.version;
 	// notify the callback
-	callback(match[1], moduleVersion, modulePath);
+	callback(moduleName, moduleVersion, modulePath);
 }
 
 function rmdir_r(dirPath) {
